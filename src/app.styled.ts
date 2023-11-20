@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const StyledApp = styled.div`
+export const StyledApp = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background: #cee5e7;
   padding-left: calc(50% - 720px);
   padding-right: calc(50% - 720px);
@@ -11,4 +11,11 @@ const StyledApp = styled.div`
   padding-bottom: 30px;
 `;
 
-export default StyledApp;
+export const Content = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 15px;
+  row-gap: 15px;
+  margin-top: 20px;
+`;

@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Wrapper, SearchIcon, SearchInput, Button } from "./search.styled";
 import { ReactComponent as SearchLogo } from "../../assets/img/search-square-svgrepo-com.svg";
+import { getUser } from "../../api";
 
-interface SearchProps {}
+interface SearchProps {
+  setData: (params: any) => void;
+}
 
-function Search() {
+function Search({ setData }: SearchProps) {
   const [searchValue, setSearchValue] = useState<string>("");
 
   return (
@@ -13,6 +16,7 @@ function Search() {
         <SearchLogo />
       </SearchIcon>
       <SearchInput
+        value={searchValue}
         type="search"
         placeholder="Введите логин"
         onInput={(e: any) => {
@@ -22,6 +26,11 @@ function Search() {
       <Button
         onClick={() => {
           console.log(searchValue);
+          getUser(searchValue).then((responseData) => {
+            setSearchValue("");
+            setData(responseData);
+            console.log(responseData);
+          });
         }}
       >
         Поиск

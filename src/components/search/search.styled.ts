@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  box-shadow: 0px 4px 14px 0px #e5e5e5;
 `;
 
 export const SearchIcon = styled.svg`
@@ -33,6 +34,7 @@ export const SearchInput = styled.input`
   &:focus {
     outline: none;
     border: none;
+    border-bottom: 1px solid #68c5cc;
   }
 
   &:hover {
@@ -52,8 +54,11 @@ export const Button = styled.button`
   font-style: normal;
   color: #fff;
   font-wight: 700;
+  transition: all 0.3s;
 
   &:hover {
     cursor: pointer;
+    background: #bcfcff;
+    color: #000;
   }
 `;
