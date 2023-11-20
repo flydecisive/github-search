@@ -10,10 +10,9 @@ interface SearchProps {
 
 function Search({ setData, setIsLoading }: SearchProps) {
   const [searchValue, setSearchValue] = useState<string>("");
-  const [isDisabled, setIsDisabled] = useState<boolean>(false);
+  const [isDisabled, setIsDisabled] = useState<boolean>(true);
 
   const handleButtonClick = () => {
-    setIsDisabled(true);
     setIsLoading(true);
     getUser(searchValue).then((responseData) => {
       setData(responseData);
@@ -25,6 +24,11 @@ function Search({ setData, setIsLoading }: SearchProps) {
 
   const handleInput = (e: any) => {
     setSearchValue(e.target.value);
+
+    if (e.target.value.length > 0) {
+      setIsDisabled(false);
+    }
+
     if (!e.target.inputType && e.target.value === "") {
       setData(undefined);
     }
