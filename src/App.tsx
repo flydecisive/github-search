@@ -1,11 +1,14 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import GlobalStyle from "./globalStyles";
+import StyledApp from "./app.styled";
+import Search from "./components/search/search";
 
 function App() {
   return (
-    <div className="App">
+    <StyledApp>
       <GlobalStyle />
-    </div>
+      <Search />
+    </StyledApp>
   );
 }
 
