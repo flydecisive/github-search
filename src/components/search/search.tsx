@@ -10,6 +10,13 @@ interface SearchProps {
 function Search({ setData }: SearchProps) {
   const [searchValue, setSearchValue] = useState<string>("");
 
+  const handleButtonClick = () => {
+    getUser(searchValue).then((responseData) => {
+      setData(responseData);
+      console.log(responseData);
+    });
+  };
+
   return (
     <Wrapper>
       <SearchIcon>
@@ -23,18 +30,7 @@ function Search({ setData }: SearchProps) {
           setSearchValue(e.target.value);
         }}
       />
-      <Button
-        onClick={() => {
-          console.log(searchValue);
-          getUser(searchValue).then((responseData) => {
-            setSearchValue("");
-            setData(responseData);
-            console.log(responseData);
-          });
-        }}
-      >
-        Поиск
-      </Button>
+      <Button onClick={handleButtonClick}>Поиск</Button>
     </Wrapper>
   );
 }

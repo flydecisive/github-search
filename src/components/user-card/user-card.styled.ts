@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: 100%;
+  height: 204px;
   background: #fff;
   border: none;
   border-radius: 7px;
@@ -12,6 +13,10 @@ export const Wrapper = styled.div`
   flex-flow: column nowrap;
   gap: 10px;
   align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Avatar = styled.img`

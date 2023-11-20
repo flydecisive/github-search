@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledApp = styled.div`
-  width: 100vw;
+  max-width: 100vw;
   min-height: 100vh;
   background: #cee5e7;
   padding-left: calc(50% - 720px);
@@ -9,6 +9,7 @@ export const StyledApp = styled.div`
   box-sizing: border-box;
   padding-top: 30px;
   padding-bottom: 30px;
+  position: relative;
 `;
 
 export const Content = styled.div`
@@ -18,4 +19,5 @@ export const Content = styled.div`
   column-gap: 15px;
   row-gap: 15px;
   margin-top: 20px;
+  box-sizing: border-box;
 `;

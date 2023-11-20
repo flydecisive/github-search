@@ -14,8 +14,8 @@ export const Wrapper = styled.div`
 `;
 
 export const SearchIcon = styled.svg`
-  stroke: #c4c4c4;
-  fill: #c4c4c4;
+  stroke: #68c5cc;
+  fill: #68c5cc;
   width: 50px;
   height: 50px;
   margin-right: 10px;
