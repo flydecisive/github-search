@@ -61,4 +61,8 @@ export const Button = styled.button`
     background: #bcfcff;
     color: #000;
   }
+
+  &:disabled {
+    background: #c4c4c4;
+  }
 `;

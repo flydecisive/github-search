@@ -12,12 +12,13 @@ export const StyledApp = styled.div`
   position: relative;
 `;
 
-export const Content = styled.div`
+export const Content = styled.div<{ $isLoading: boolean }>`
   width: 100%;
-  display: grid;
+  display: ${(props) => (props.$isLoading ? "flex" : "grid")};
+  justify-content: center;
   grid-template-columns: repeat(5, 1fr);
   column-gap: 15px;
   row-gap: 15px;
-  margin-top: 20px;
+  margin-top: ${(props) => (props.$isLoading ? "120px" : "20px")};
   box-sizing: border-box;
 `;
