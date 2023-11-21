@@ -18,7 +18,6 @@ function Search({ setResponseData, setIsLoading }: SearchProps) {
       setResponseData(responseData);
       setIsDisabled(false);
       setIsLoading(false);
-      console.log(responseData);
     });
   };
 
@@ -31,6 +30,7 @@ function Search({ setResponseData, setIsLoading }: SearchProps) {
 
     if (!e.target.inputType && e.target.value === "") {
       setResponseData(undefined);
+      setIsDisabled(true);
     }
   };
 

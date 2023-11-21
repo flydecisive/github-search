@@ -22,3 +22,11 @@ export const Content = styled.div<{ $isLoading: boolean }>`
   margin-top: ${(props) => (props.$isLoading ? "120px" : "20px")};
   box-sizing: border-box;
 `;
+
+export const Message = styled.p`
+  font-size: 30px;
+  font-style: normal;
+  color: #109caa;
+  font-weight: 700;
+  grid-column: span 2;
+`;

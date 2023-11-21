@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   margin-top: 20px;
   color: #109caa;
   font-size: 20px;
-  font-wight: 700;
+  font-weight: 700;
 `;
 
 export const FilterItem = styled.span<{ $isActive: boolean }>`
