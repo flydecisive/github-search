@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import GlobalStyle from "./globalStyles";
 import { StyledApp, Content } from "./app.styled";
 import Search from "./components/search/search";
@@ -7,17 +7,30 @@ import Loader from "./components/loader/loader";
 import Filter from "./components/filter/filter";
 
 function App() {
-  const [data, setData] = useState<any>();
+  const [responseData, setResponseData] = useState<any>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [data, setData] = useState<any>();
   const [filterState, setFilterState] = useState({
     0: true,
     1: false,
   });
 
+  useEffect(() => {
+    if (responseData) {
+      if (filterState[0]) {
+        setData(responseData?.items);
+      }
+
+      if (filterState[1]) {
+        setData([...responseData?.items].reverse());
+      }
+    }
+  }, [filterState, responseData]);
+
   return (
     <StyledApp>
       <GlobalStyle />
-      <Search setData={setData} setIsLoading={setIsLoading} />
+      <Search setResponseData={setResponseData} setIsLoading={setIsLoading} />
       {data && !isLoading ? (
         <Filter filterState={filterState} setFilterState={setFilterState} />
       ) : (
@@ -27,7 +40,7 @@ function App() {
         {isLoading ? (
           <Loader />
         ) : (
-          data?.items?.map((el: any, index: number) => {
+          data?.map((el: any, index: number) => {
             return <UserCard key={index} userData={el} id={index} />;
           })
         )}

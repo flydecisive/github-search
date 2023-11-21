@@ -4,18 +4,18 @@ import { ReactComponent as SearchLogo } from "../../assets/img/search-square-svg
 import { getUser } from "../../api";
 
 interface SearchProps {
-  setData: (params: any) => void;
+  setResponseData: (params: any) => void;
   setIsLoading: (params: any) => void;
 }
 
-function Search({ setData, setIsLoading }: SearchProps) {
+function Search({ setResponseData, setIsLoading }: SearchProps) {
   const [searchValue, setSearchValue] = useState<string>("");
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
 
   const handleButtonClick = () => {
     setIsLoading(true);
     getUser(searchValue).then((responseData) => {
-      setData(responseData);
+      setResponseData(responseData);
       setIsDisabled(false);
       setIsLoading(false);
       console.log(responseData);
@@ -30,7 +30,7 @@ function Search({ setData, setIsLoading }: SearchProps) {
     }
 
     if (!e.target.inputType && e.target.value === "") {
-      setData(undefined);
+      setResponseData(undefined);
     }
   };
 
