@@ -30,3 +30,13 @@ export const Message = styled.p`
   font-weight: 700;
   grid-column: span 2;
 `;
+
+export const SearchInfo = styled.p`
+  font-size: 14px;
+  font-style: normal;
+  rgb(16 156 170 / 50%)
+  font-weight: 700;
+  grid-column: span 2;
+  opacity: 0.5;
+  margin-top: 5px;
+`;

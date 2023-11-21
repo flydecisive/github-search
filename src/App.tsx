@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import GlobalStyle from "./globalStyles";
-import { StyledApp, Content, Message } from "./app.styled";
+import { StyledApp, Content, Message, SearchInfo } from "./app.styled";
 import Search from "./components/search/search";
 import UserCard from "./components/user-card/user-card";
 import Loader from "./components/loader/loader";
@@ -40,6 +40,11 @@ function App() {
     <StyledApp>
       <GlobalStyle />
       <Search setResponseData={setResponseData} setIsLoading={setIsLoading} />
+      {!isLoading && data ? (
+        <SearchInfo>{`Показано: ${data?.length} Всего результатов: ${responseData?.total_count}`}</SearchInfo>
+      ) : (
+        ""
+      )}
       {data?.length !== 0 && data && !isLoading ? (
         <Filter filterState={filterState} setFilterState={setFilterState} />
       ) : (
