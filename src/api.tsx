@@ -7,7 +7,7 @@ const token =
 
 //   ${API_PATH}?q=${userName}
 export function getUser(userName: string) {
-  return fetch(`${API_PATH}?q=${userName}`, {
+  return fetch(`${API_PATH}?q=${userName}&sort=repositories`, {
     headers: {
       Authorization: token,
     },
@@ -15,6 +15,17 @@ export function getUser(userName: string) {
     console.log(response);
     return response.json();
   });
+}
+
+export function getFollowers(user: string) {
+  return fetch(`${BASE_PATH}${user}/followers`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((responseData) => {
+      console.log(responseData);
+      return responseData;
+    });
 }
 
 // export function getUserRepos(userName: string) {

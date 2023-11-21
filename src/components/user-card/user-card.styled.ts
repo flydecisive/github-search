@@ -32,3 +32,59 @@ export const UserName = styled.p`
   line-height: normal;
   color: #68c5cc;
 `;
+
+export const Heading = styled.h3`
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #68c5cc;
+`;
+
+export const Link = styled.a`
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  padding: 10px 0px 10px 0px;
+  font-size: 20px;
+  font-style: normal;
+  color: #fff;
+  font-wight: 700;
+  transition: all 0.3s;
+  background: #68c5cc;
+  text-align: center;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: 1px solid #68c5cc;
+
+  &:hover {
+    cursor: pointer;
+    background: #bcfcff;
+    color: #000;
+  }
+`;
+
+export const InfoWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 5px;
+`;
+
+export const InfoItem = styled.div`
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 5px;
+  border: 2px solid #68c5cc;
+  box-sizing: border-box;
+  padding: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  color: #68c5cc;
+  font-size: 16px;
+  font-weight: 700;
+`;
