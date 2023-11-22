@@ -10,7 +10,7 @@ github-search - это платформа для поиска пользоват
 </ul>
 
 ## Ссылка на готовый проект
-`https://funny-druid-f6a54a.netlify.app`
+https://funny-druid-f6a54a.netlify.app
 
 ## Используемые технологии
 
