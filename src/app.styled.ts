@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledApp = styled.div`
   max-width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   background: #cee5e7;
   padding-left: calc(50% - 720px);
   padding-right: calc(50% - 720px);
@@ -39,4 +39,24 @@ export const SearchInfo = styled.p`
   grid-column: span 2;
   opacity: 0.5;
   margin-top: 5px;
+`;
+
+export const PagesWrapper = styled.ul`
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 15px;
+  justify-content: center;
+`;
+
+export const PagesItem = styled.li<{ $isActive: boolean; id: number }>`
+  list-style-type: none;
+  font-size: 32px;
+  font-wight: 700;
+  color: ${(props) => (props.$isActive ? "#68c5cc" : "#fff")};
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
