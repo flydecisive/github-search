@@ -13,10 +13,13 @@ github-search - это платформа для поиска пользоват
 https://funny-druid-f6a54a.netlify.app
 
 ## Используемые технологии
+<img src='https://img.shields.io/badge/React-%3Cgreen%3E' />&nbsp;
+<img src='https://img.shields.io/badge/TypeScript-%3Cgreen%3E' />&nbsp;
+<img src='https://img.shields.io/badge/StyledComponents-%3Cgreen%3E' />&nbsp;
 
 ## Техническое описание
-Установить зависимости командой `npm install` <br />
-Запустить проект командой `npm run start` <br />
-Можно собрать проект командой `npm run build` <br /><br />
+Установка зависимостей `npm install` <br />
+Запуск проекта `npm run start` <br />
+Сборка проекта `npm run build` <br /><br />
 
 `src/` — директория, содержащая исходный код проекта.
