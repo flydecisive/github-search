@@ -1,13 +1,11 @@
 import styled from "styled-components";
-// padding-left: calc(50% - 720px);
-// padding-right: calc(50% - 720px);
 
 export const StyledApp = styled.div`
   max-width: 100vw;
   min-height: 100vh;
   background: #cee5e7;
-  padding-left: 1vw;
-  padding-right: 1vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
   box-sizing: border-box;
   padding-top: 30px;
   padding-bottom: 30px;
