@@ -33,8 +33,8 @@ export const UserName = styled.p`
   color: #68c5cc;
 `;
 
-export const Heading = styled.h3`
-  font-size: 20px;
+export const Text = styled.h3`
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -82,9 +82,14 @@ export const InfoItem = styled.div`
   padding: 5px;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between;
+  gap: 5px;
   align-items: center;
   color: #68c5cc;
   font-size: 16px;
   font-weight: 700;
+`;
+
+export const InfoItemSpan = styled.span`
+  display: block;
+  font-size: 28px;
 `;

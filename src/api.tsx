@@ -24,24 +24,15 @@ export function getUser(userName: string) {
   });
 }
 
-export function getFollowers(user: string) {
-  return fetch(`${BASE_PATH}${user}/followers`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((responseData) => {
-      console.log(responseData);
-      return responseData;
-    });
+export function getUserInfo(userName: string) {
+  return fetch(`${BASE_PATH}users/${userName}`, {
+    headers: {
+      Authorization: token,
+    },
+  }).then((response) => {
+    if (!response.ok && response.status === 403) {
+      throw new Error("Api rate");
+    }
+    return response.json();
+  });
 }
-
-// export function getUserRepos(userName: string) {
-//   return fetch(`${BASE_PATH}users/${userName}/repos`, {
-//     headers: {
-//       Authorization: token,
-//     },
-//   }).then((response) => {
-//     console.log(response);
-//     return response.json();
-//   });
-// }

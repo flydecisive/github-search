@@ -3,12 +3,13 @@ import {
   Wrapper,
   Avatar,
   UserName,
-  Heading,
+  Text,
   Link,
   InfoWrapper,
   InfoItem,
+  InfoItemSpan,
 } from "./user-card.styled";
-import { getFollowers } from "../../api";
+import { getUserInfo } from "../../api";
 
 interface UserCardProps {
   userData: any;
@@ -17,11 +18,19 @@ interface UserCardProps {
 
 function UserCard({ userData, id }: UserCardProps) {
   const [showInfo, setShowInfo] = useState<boolean>(false);
-  const [followers, setFollowers] = useState<number>();
+  const [userInfo, setUserInfo] = useState<any>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleCardClick = (e: any) => {
     setShowInfo(!showInfo);
-    // getFollowers(userData?.login);
+    getUserInfo(userData?.login)
+      .then((responseData) => {
+        console.log(responseData);
+        setUserInfo(responseData);
+      })
+      .catch((error) => {
+        alert("Превышено максимальное количество запросов, попробуйте позже.");
+      });
   };
 
   return (
@@ -36,15 +45,19 @@ function UserCard({ userData, id }: UserCardProps) {
     >
       {showInfo ? (
         <>
-          <Heading>Информация</Heading>
-          <Link href={`${userData?.html_url}`} target="_blank">
+          <Text>{`Зарегистрирован: ${userInfo?.created_at}`}</Text>
+          <Link href={`${userInfo?.html_url}`} target="_blank">
             Профиль
           </Link>
           <InfoWrapper>
-            <InfoItem>Репозитории</InfoItem>
-            <InfoItem>Подписчики</InfoItem>
+            <InfoItem>
+              Репозитории{" "}
+              <InfoItemSpan>{`${userInfo?.public_repos}`}</InfoItemSpan>
+            </InfoItem>
+            <InfoItem>
+              Подписчики <InfoItemSpan>{`${userInfo?.followers}`}</InfoItemSpan>
+            </InfoItem>
           </InfoWrapper>
-          {/* userData.repos_url */}
         </>
       ) : (
         <>
