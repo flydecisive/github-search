@@ -84,6 +84,7 @@ export const InfoItem = styled.div`
   flex-flow: column nowrap;
   gap: 5px;
   align-items: center;
+  justify-content: center;
   color: #68c5cc;
   font-size: 16px;
   font-weight: 700;

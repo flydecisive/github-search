@@ -10,6 +10,7 @@ import {
   InfoItemSpan,
 } from "./user-card.styled";
 import { getUserInfo } from "../../api";
+import format from "date-fns/format";
 
 interface UserCardProps {
   userData: any;
@@ -45,7 +46,9 @@ function UserCard({ userData, id }: UserCardProps) {
     >
       {showInfo ? (
         <>
-          <Text>{`Зарегистрирован: ${userInfo?.created_at}`}</Text>
+          <Text>{`Зарегистрирован: ${
+            userInfo ? format(new Date(userInfo?.created_at), "dd.MM.yyyy") : ""
+          }`}</Text>
           <Link href={`${userInfo?.html_url}`} target="_blank">
             Профиль
           </Link>
