@@ -17,7 +17,6 @@ function Search({ setResponseData, setIsLoading }: SearchProps) {
     setIsDisabled(true);
     getUser(searchValue)
       .then((responseData) => {
-        console.log(responseData);
         setResponseData(responseData);
       })
       .catch((error) => {

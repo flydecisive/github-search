@@ -29,7 +29,6 @@ function UserCard({ userData, id }: UserCardProps) {
     setShowInfo(!showInfo);
     getUserInfo(userData?.login)
       .then((responseData) => {
-        console.log(responseData);
         setUserInfo(responseData);
       })
       .catch((error) => {
