@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ $showInfo: boolean }>`
   width: 100%;
   height: 204px;
   background: #fff;
@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-flow: column nowrap;
   gap: 10px;
-  align-items: center;
+  align-items: ${(props) => (props.$showInfo ? "flex-start" : "center")};
   position: relative;
 
   &:hover {

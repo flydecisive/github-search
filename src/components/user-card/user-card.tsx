@@ -74,6 +74,7 @@ function UserCard({ userData, id }: UserCardProps) {
       onMouseLeave={() => {
         setShowInfo(false);
       }}
+      $showInfo={showInfo}
     >
       {showInfo ? (
         cardInfo
