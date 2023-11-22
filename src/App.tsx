@@ -123,7 +123,7 @@ function App() {
           })
         )}
       </Content>
-      {pagesCount && pagesState && !isLoading ? (
+      {pagesCount > 1 && pagesState && !isLoading ? (
         <PagesWrapper>
           {Object.keys(pagesState).map((el, index) => (
             <PagesItem

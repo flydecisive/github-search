@@ -12,7 +12,7 @@ function Search({ setResponseData, setIsLoading }: SearchProps) {
   const [searchValue, setSearchValue] = useState<string>("");
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
 
-  const handleButtonClick = () => {
+  function fetchGetUser() {
     setIsLoading(true);
     setIsDisabled(true);
     getUser(searchValue)
@@ -27,6 +27,16 @@ function Search({ setResponseData, setIsLoading }: SearchProps) {
         setIsDisabled(false);
         setIsLoading(false);
       });
+  }
+
+  const handleButtonClick = () => {
+    fetchGetUser();
+  };
+
+  const handleEnterClick = (e: any) => {
+    if (e.key === "Enter") {
+      fetchGetUser();
+    }
   };
 
   const handleInput = (e: any) => {
@@ -53,6 +63,9 @@ function Search({ setResponseData, setIsLoading }: SearchProps) {
         placeholder="Введите логин"
         onInput={(e: any) => {
           handleInput(e);
+        }}
+        onKeyDown={(e: any) => {
+          handleEnterClick(e);
         }}
       />
       <Button onClick={handleButtonClick} disabled={isDisabled}>
