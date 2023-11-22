@@ -10,7 +10,7 @@ import {
 } from "./app.styled";
 import Search from "./components/search/search";
 import UserCard from "./components/user-card/user-card";
-import Loader from "./components/loader/loader";
+import Loader from "./components/loaders/loader";
 import Filter from "./components/filter/filter";
 
 function App() {

@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
   flex-flow: column nowrap;
   gap: 10px;
   align-items: center;
+  position: relative;
 
   &:hover {
     cursor: pointer;

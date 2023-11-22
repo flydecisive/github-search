@@ -38,7 +38,7 @@ const mulShdSpin = keyframes`
 `;
 
 const StyledLoader = styled.span`
-  color: #fff;
+  color: #046d77;
   font-size: 25px;
   width: 1em;
   height: 1em;

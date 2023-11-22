@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Wrapper,
   Avatar,
@@ -11,6 +11,7 @@ import {
 } from "./user-card.styled";
 import { getUserInfo } from "../../api";
 import format from "date-fns/format";
+import CardLoader from "../loaders/card-loader";
 
 interface UserCardProps {
   userData: any;
@@ -20,9 +21,11 @@ interface UserCardProps {
 function UserCard({ userData, id }: UserCardProps) {
   const [showInfo, setShowInfo] = useState<boolean>(false);
   const [userInfo, setUserInfo] = useState<any>();
+  const [cardInfo, setCardInfo] = useState<any>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleCardClick = (e: any) => {
+    setIsLoading(true);
     setShowInfo(!showInfo);
     getUserInfo(userData?.login)
       .then((responseData) => {
@@ -31,20 +34,17 @@ function UserCard({ userData, id }: UserCardProps) {
       })
       .catch((error) => {
         alert("Превышено максимальное количество запросов, попробуйте позже.");
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
-  return (
-    <Wrapper
-      id={id}
-      onClick={(e: any) => {
-        handleCardClick(e);
-      }}
-      onMouseLeave={() => {
-        setShowInfo(false);
-      }}
-    >
-      {showInfo ? (
+  useEffect(() => {
+    if (isLoading) {
+      setCardInfo(<CardLoader></CardLoader>);
+    } else {
+      setCardInfo(
         <>
           <Text>{`Зарегистрирован: ${
             userInfo ? format(new Date(userInfo?.created_at), "dd.MM.yyyy") : ""
@@ -62,6 +62,39 @@ function UserCard({ userData, id }: UserCardProps) {
             </InfoItem>
           </InfoWrapper>
         </>
+      );
+    }
+  }, [isLoading, userInfo]);
+
+  return (
+    <Wrapper
+      id={id}
+      onClick={(e: any) => {
+        handleCardClick(e);
+      }}
+      onMouseLeave={() => {
+        setShowInfo(false);
+      }}
+    >
+      {showInfo ? (
+        // <>
+        //   <Text>{`Зарегистрирован: ${
+        //     cardInfo ? format(new Date(cardInfo?.created_at), "dd.MM.yyyy") : ""
+        //   }`}</Text>
+        //   <Link href={`${cardInfo?.html_url}`} target="_blank">
+        //     Профиль
+        //   </Link>
+        //   <InfoWrapper>
+        //     <InfoItem>
+        //       Репозитории{" "}
+        //       <InfoItemSpan>{`${cardInfo?.public_repos}`}</InfoItemSpan>
+        //     </InfoItem>
+        //     <InfoItem>
+        //       Подписчики <InfoItemSpan>{`${cardInfo?.followers}`}</InfoItemSpan>
+        //     </InfoItem>
+        //   </InfoWrapper>
+        // </>
+        cardInfo
       ) : (
         <>
           <Avatar src={userData?.avatar_url} />
