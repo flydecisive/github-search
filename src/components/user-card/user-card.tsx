@@ -77,23 +77,6 @@ function UserCard({ userData, id }: UserCardProps) {
       }}
     >
       {showInfo ? (
-        // <>
-        //   <Text>{`Зарегистрирован: ${
-        //     cardInfo ? format(new Date(cardInfo?.created_at), "dd.MM.yyyy") : ""
-        //   }`}</Text>
-        //   <Link href={`${cardInfo?.html_url}`} target="_blank">
-        //     Профиль
-        //   </Link>
-        //   <InfoWrapper>
-        //     <InfoItem>
-        //       Репозитории{" "}
-        //       <InfoItemSpan>{`${cardInfo?.public_repos}`}</InfoItemSpan>
-        //     </InfoItem>
-        //     <InfoItem>
-        //       Подписчики <InfoItemSpan>{`${cardInfo?.followers}`}</InfoItemSpan>
-        //     </InfoItem>
-        //   </InfoWrapper>
-        // </>
         cardInfo
       ) : (
         <>

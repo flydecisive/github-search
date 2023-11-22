@@ -5,7 +5,6 @@ const API_PATH = `${BASE_PATH}search/users`;
 const token =
   "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";
 
-//  для информации о пользователе ${BASE_PATH}users/${userName}`
 export function getUser(userName: string) {
   return fetch(
     `${API_PATH}?q=` +
