@@ -14,12 +14,19 @@ function Search({ setResponseData, setIsLoading }: SearchProps) {
 
   const handleButtonClick = () => {
     setIsLoading(true);
-    getUser(searchValue).then((responseData) => {
-      console.log(responseData);
-      setResponseData(responseData);
-      setIsDisabled(false);
-      setIsLoading(false);
-    });
+    setIsDisabled(true);
+    getUser(searchValue)
+      .then((responseData) => {
+        console.log(responseData);
+        setResponseData(responseData);
+      })
+      .catch((error) => {
+        alert("Превышено максимальное количество запросов, попробуйте позже.");
+      })
+      .finally(() => {
+        setIsDisabled(false);
+        setIsLoading(false);
+      });
   };
 
   const handleInput = (e: any) => {

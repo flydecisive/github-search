@@ -17,7 +17,9 @@ export function getUser(userName: string) {
       },
     }
   ).then((response) => {
-    console.log(response);
+    if (!response.ok && response.status === 403) {
+      throw new Error("Api rate");
+    }
     return response.json();
   });
 }

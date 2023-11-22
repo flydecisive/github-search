@@ -30,7 +30,7 @@ function App() {
 
   useEffect(() => {
     if (responseData) {
-      setPagesCount(Math.ceil(responseData?.items.length / 15));
+      setPagesCount(Math.ceil(responseData?.items?.length / 15));
       setCurrentPage(1);
 
       if (filterState[0]) {
