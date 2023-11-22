@@ -40,6 +40,7 @@ function Search({ setResponseData, setIsLoading }: SearchProps) {
   };
 
   const handleInput = (e: any) => {
+    e.target.value = e.target.value.replace(/[^a-z,A-Z,0-9,а-я,А-Я]/, "");
     setSearchValue(e.target.value);
 
     if (e.target.value.length > 0) {
